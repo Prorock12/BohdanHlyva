@@ -1,9 +1,0 @@
-C:\Богдан\C#\Mita Teknik\Hash.My\bin\Debug\netstandard2.0\Hash.My.deps.json
-C:\Богдан\C#\Mita Teknik\Hash.My\bin\Debug\netstandard2.0\Hash.My.dll
-C:\Богдан\C#\Mita Teknik\Hash.My\bin\Debug\netstandard2.0\Hash.My.pdb
-C:\Богдан\C#\Mita Teknik\Hash.My\obj\Debug\netstandard2.0\Hash.My.csprojAssemblyReference.cache
-C:\Богдан\C#\Mita Teknik\Hash.My\obj\Debug\netstandard2.0\Hash.My.AssemblyInfoInputs.cache
-C:\Богдан\C#\Mita Teknik\Hash.My\obj\Debug\netstandard2.0\Hash.My.AssemblyInfo.cs
-C:\Богдан\C#\Mita Teknik\Hash.My\obj\Debug\netstandard2.0\Hash.My.dll
-C:\Богдан\C#\Mita Teknik\Hash.My\obj\Debug\netstandard2.0\Hash.My.pdb
-C:\Богдан\C#\Mita Teknik\Hash.My\obj\Debug\netstandard2.0\Hash.My.csproj.CoreCompileInputs.cache
