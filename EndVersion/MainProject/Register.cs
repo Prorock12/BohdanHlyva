@@ -11,14 +11,11 @@ namespace MainProject
     public class Register
     {
         HashAction.Hash My = new HashAction.Hash();
-        public bool SaveToRegister()
+        public bool SaveDataToRegister()
         {
             RegistryKey currentUserKey = Registry.CurrentUser;
             RegistryKey helloKey = currentUserKey.CreateSubKey("UniqueKey");
-            //string expirationDate = string.Concat(DateTime.Now.ToString("d"), Data.Availability);
             string expirationDate = DateTime.Now.ToString("d");
-            string concatString = string.Concat(Data.SerialNumberOut, Data.Product,Data.Availability,expirationDate);
-            helloKey.SetValue("key", My.GenerateKey(concatString));
             helloKey.SetValue("date", expirationDate);
             helloKey.Close();
             return true;
@@ -37,6 +34,14 @@ namespace MainProject
             {
                 return null;
             }
+        }
+        public bool SaveKeyToRegister(string key)
+        {
+            RegistryKey currentUserKey = Registry.CurrentUser;
+            RegistryKey helloKey = currentUserKey.CreateSubKey("UniqueKey");
+            helloKey.SetValue("key", key);
+            helloKey.Close();
+            return true;
         }
         public string GetRegisterDate()
         {

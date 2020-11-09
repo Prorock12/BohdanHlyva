@@ -11,24 +11,6 @@ namespace MainProject
     {
         private static ManagementObjectSearcher baseboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_BaseBoard");
         private static ManagementObjectSearcher motherboardSearcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_MotherboardDevice");
-        static public string Product
-        {
-            get
-            {
-                try
-                {
-                    foreach (ManagementObject queryObj in baseboardSearcher.Get())
-                    {
-                        return queryObj["Product"].ToString();
-                    }
-                    return "";
-                }
-                catch (Exception e)
-                {
-                    return "";
-                }
-            }
-        }
         static public string SerialNumberOut
         {
             get

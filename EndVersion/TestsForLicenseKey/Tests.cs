@@ -8,6 +8,7 @@ namespace TestsForLicenseKey
     public class Tests
     {
         Register register = new Register();
+        StringOperation operation = new StringOperation();
         [SetUp]
         public void Setup()
         {
@@ -50,8 +51,9 @@ namespace TestsForLicenseKey
         public void CorrectKey()
         {
             HashAction.Hash hash = new HashAction.Hash();
-            string ConcatString = string.Concat(Data.SerialNumberOut, Data.Product, Data.Availability,DateTime.Now.ToString("d"));
+            string ConcatString = string.Concat(Data.SerialNumberOut, Data.Availability,DateTime.Now.ToString("d"));
             string key = hash.GenerateKey(ConcatString);
+            key = operation.AddSplit(key);
 
             bool result = hash.Verification(key, register.RegisterVerification());
 
@@ -63,7 +65,7 @@ namespace TestsForLicenseKey
         public void DifferentResult()
         {
             HashAction.Hash hash = new HashAction.Hash();
-            string ConcatString = string.Concat(Data.SerialNumberOut, Data.Product, DateTime.Now.ToString("d"), Data.Availability);
+            string ConcatString = string.Concat(Data.SerialNumberOut, DateTime.Now.ToString("d"), Data.Availability);
             string key = hash.GenerateKey(ConcatString);
 
             string otherResult = hash.GenerateKey("Hello World");
@@ -78,7 +80,7 @@ namespace TestsForLicenseKey
         public void HashNotEmpty()
         {
             HashAction.Hash hash = new HashAction.Hash();
-            string ConcatString = string.Concat(Data.SerialNumberOut, Data.Product, DateTime.Now.ToString("d"), Data.Availability);
+            string ConcatString = string.Concat(Data.SerialNumberOut, DateTime.Now.ToString("d"), Data.Availability);
             string result = hash.GenerateKey(ConcatString);
 
             string expected = null;
@@ -89,7 +91,7 @@ namespace TestsForLicenseKey
         public void SameLenght()
         {
             HashAction.Hash hash = new HashAction.Hash();
-            string ConcatString = string.Concat(Data.SerialNumberOut, Data.Product, DateTime.Now.ToString("d"), Data.Availability);
+            string ConcatString = string.Concat(Data.SerialNumberOut, DateTime.Now.ToString("d"), Data.Availability);
             int key = hash.GenerateKey(ConcatString).Length;
 
             int otherResult = hash.GenerateKey("Hello World").Length;
@@ -104,10 +106,10 @@ namespace TestsForLicenseKey
         public void SameResult()
         {
             HashAction.Hash hash = new HashAction.Hash();
-            string ConcatString = string.Concat(Data.SerialNumberOut, Data.Product, DateTime.Now.ToString("d"), Data.Availability);
+            string ConcatString = string.Concat(Data.SerialNumberOut, DateTime.Now.ToString("d"), Data.Availability);
             string key = hash.GenerateKey(ConcatString);
 
-            string ConcatString1 = string.Concat(Data.SerialNumberOut, Data.Product, DateTime.Now.ToString("d"), Data.Availability);
+            string ConcatString1 = string.Concat(Data.SerialNumberOut, DateTime.Now.ToString("d"), Data.Availability);
             string key1 = hash.GenerateKey(ConcatString1);
 
             bool result = hash.Verification(key, key1);
