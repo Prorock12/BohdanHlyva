@@ -28,10 +28,6 @@ namespace KeyGeneration
             FieldForLicenseKey.Text = stringOperation.AddSplit(result);
 
             manager.WritePrivateString("main", "key", FieldForLicenseKey.Text);
-            MessageBox.Show(
-                path,
-                "warning",
-                MessageBoxButtons.OK);
         }
     }
 }

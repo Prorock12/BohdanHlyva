@@ -154,13 +154,23 @@ namespace MainProject
 
         private void SaveKey_Click(object sender, EventArgs e)
         {
-            //if(FieldForVerifycate )
-            register.SaveKeyToRegister(FieldForVerifycate.Text);
-            MessageBox.Show(
-                    "License key is saved",
-                    "Message",
-                    MessageBoxButtons.OK
-                    );
+            if (FieldForVerifycate.Text != null && FieldForVerifycate.Text != string.Empty)
+            {
+                register.SaveKeyToRegister(FieldForVerifycate.Text);
+                MessageBox.Show(
+                        "License key is saved",
+                        "Message",
+                        MessageBoxButtons.OK
+                        );
+            }
+            else
+            {
+                MessageBox.Show(
+                        "Please enter license key before save",
+                        "Message",
+                        MessageBoxButtons.OK
+                        );
+            }
         }
         private void MainForm_Close(object sender, FormClosedEventArgs e)
         {
