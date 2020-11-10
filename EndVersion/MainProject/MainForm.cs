@@ -62,6 +62,7 @@ namespace MainProject
                         if (hash.Verification(operation.RemoveSplit(manager.GetPrivateString("main", "key")), compareResult))
                         {
                             result = "This code is yours";
+                            manager.WritePrivateString("main", "endKey", manager.GetPrivateString("main", "key"));
                             this.Hide();
                             MainProject main = new MainProject();
                             main.Show();

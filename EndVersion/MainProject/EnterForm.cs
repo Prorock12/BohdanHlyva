@@ -24,7 +24,7 @@ namespace MainProject
         private void EnterProgram_Click(object sender, EventArgs e)
         {
             string compareResult = operation.AddSplit(hash.GenerateKey(string.Concat(Data.SerialNumberOut, Data.Availability, manager.GetPrivateString("main","date"))));
-            if (hash.Verification(compareResult,manager.GetPrivateString("main","key")))
+            if (hash.Verification(compareResult,manager.GetPrivateString("main","endKey")))
             {
                 this.Hide();
                 MainProject x = new MainProject();
