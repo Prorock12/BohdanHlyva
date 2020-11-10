@@ -17,17 +17,25 @@ namespace KeyGeneration
         {
             InitializeComponent();
         }
-
         private void GenerateKey_Click(object sender, EventArgs e)
         {
+            
             HashAction.Hash hash = new HashAction.Hash();
-            string path = Directory.GetCurrentDirectory() + "\\License.ini";
-            INIManager manager = new INIManager(path);
+            INIManager manager = new INIManager(Directory.GetCurrentDirectory() + "\\License.ini");
             StringOperation stringOperation = new StringOperation();
-            string result = hash.GenerateKey(FieldForEnterData.Text);
-            FieldForLicenseKey.Text = stringOperation.AddSplit(result);
-
-            manager.WritePrivateString("main", "key", FieldForLicenseKey.Text);
+            if (string.IsNullOrEmpty(txtSerialNumber.Text))
+            {
+                txtSerialNumber.Text = manager.GetPrivateString("main", "serialNumber");
+                string result = hash.GenerateKey(txtSerialNumber.Text);
+                txtLicenseKey.Text = stringOperation.AddSplit(result);
+                manager.WritePrivateString("main", "key", txtLicenseKey.Text);
+            }
+            else
+            {
+                string result = hash.GenerateKey(txtSerialNumber.Text);
+                txtLicenseKey.Text = stringOperation.AddSplit(result);
+                manager.WritePrivateString("main", "key", txtLicenseKey.Text);
+            }
         }
     }
 }

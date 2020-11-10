@@ -33,7 +33,6 @@ C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\Ma
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.csproj.GenerateResource.cache
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.AssemblyInfoInputs.cache
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.AssemblyInfo.cs
-C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.csproj.CoreCompileInputs.cache
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.dll
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.pdb
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\MainProject.deps.json
@@ -42,3 +41,15 @@ C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\Ma
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\MainProject.pdb
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.csproj.CopyComplete
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.genruntimeconfig.cache
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\KeyGeneration.exe
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Ini.dll
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\KeyGeneration.dll
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\KeyGeneration.pdb
+C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.csproj.CoreCompileInputs.cache

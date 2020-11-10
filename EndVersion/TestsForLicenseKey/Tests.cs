@@ -1,18 +1,34 @@
 using MainProject;
+using KeyGeneration;
 using NUnit.Framework;
 using System;
 using System.Management;
+using System.IO;
 
 namespace TestsForLicenseKey
 {
     public class Tests
     {
-        Register register = new Register();
-        StringOperation operation = new StringOperation();
+        //Register register = new Register();
+        MainProject.StringOperation operation = new MainProject.StringOperation();
+        INIManager manager = new INIManager();
+        string path = null;
         [SetUp]
         public void Setup()
         {
-
+            for (int index = 0; index < 4; index++)
+            {
+                if (index > 0)
+                {
+                    path = Path.GetDirectoryName(path);
+                }
+                else
+                {
+                    path = Path.GetDirectoryName(Directory.GetCurrentDirectory());
+                }
+            }
+            path = path + "\\KeyGeneration\\bin\\Debug\\netcoreapp3.1\\License.ini";
+            manager.Path = path;
         }
 
         [Test]
@@ -21,7 +37,7 @@ namespace TestsForLicenseKey
             
             HashAction.Hash hash = new HashAction.Hash();
             string key = hash.GenerateKey("Hello Worl");
-            bool result = hash.Verification(key, register.RegisterVerification());
+            bool result = hash.Verification(key, manager.GetPrivateString("main","key"));
 
             bool expected = false;
 
@@ -55,7 +71,7 @@ namespace TestsForLicenseKey
             string key = hash.GenerateKey(ConcatString);
             key = operation.AddSplit(key);
 
-            bool result = hash.Verification(key, register.RegisterVerification());
+            bool result = hash.Verification(key, manager.GetPrivateString("main","key"));
 
             bool expected = true;
 

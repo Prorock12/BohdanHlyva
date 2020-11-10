@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.FieldForEnterData = new System.Windows.Forms.TextBox();
+            this.txtSerialNumber = new System.Windows.Forms.TextBox();
             this.GenerateKey = new System.Windows.Forms.Button();
-            this.FieldForLicenseKey = new System.Windows.Forms.TextBox();
+            this.txtLicenseKey = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // FieldForEnterData
+            // txtSerialNumber
             // 
-            this.FieldForEnterData.Location = new System.Drawing.Point(37, 144);
-            this.FieldForEnterData.Multiline = true;
-            this.FieldForEnterData.Name = "FieldForEnterData";
-            this.FieldForEnterData.Size = new System.Drawing.Size(252, 104);
-            this.FieldForEnterData.TabIndex = 0;
+            this.txtSerialNumber.Location = new System.Drawing.Point(37, 144);
+            this.txtSerialNumber.Multiline = true;
+            this.txtSerialNumber.Name = "txtSerialNumber";
+            this.txtSerialNumber.Size = new System.Drawing.Size(252, 104);
+            this.txtSerialNumber.TabIndex = 0;
             // 
             // GenerateKey
             // 
@@ -51,22 +52,32 @@
             this.GenerateKey.UseVisualStyleBackColor = true;
             this.GenerateKey.Click += new System.EventHandler(this.GenerateKey_Click);
             // 
-            // FieldForLicenseKey
+            // txtLicenseKey
             // 
-            this.FieldForLicenseKey.Location = new System.Drawing.Point(406, 144);
-            this.FieldForLicenseKey.Multiline = true;
-            this.FieldForLicenseKey.Name = "FieldForLicenseKey";
-            this.FieldForLicenseKey.Size = new System.Drawing.Size(252, 104);
-            this.FieldForLicenseKey.TabIndex = 0;
+            this.txtLicenseKey.Location = new System.Drawing.Point(406, 144);
+            this.txtLicenseKey.Multiline = true;
+            this.txtLicenseKey.Name = "txtLicenseKey";
+            this.txtLicenseKey.Size = new System.Drawing.Size(252, 104);
+            this.txtLicenseKey.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(259, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Just Press Button \"GenerateKey\"";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.FieldForLicenseKey);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtLicenseKey);
             this.Controls.Add(this.GenerateKey);
-            this.Controls.Add(this.FieldForEnterData);
+            this.Controls.Add(this.txtSerialNumber);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -76,9 +87,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox FieldForEnterData;
+        private System.Windows.Forms.TextBox txtSerialNumber;
         private System.Windows.Forms.Button GenerateKey;
-        private System.Windows.Forms.TextBox FieldForLicenseKey;
+        private System.Windows.Forms.TextBox txtLicenseKey;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -15,19 +15,16 @@ namespace HashAction
 
         }
         public string GenerateKey(string input)
-        {               
+        {
             try
             {
-                if (input == null || input == string.Empty)
+                if (string.IsNullOrEmpty(input))
                 {
-                    throw new ArgumentException("Value cannot be null.");
+                    throw new ArgumentException("");
                 }
-                else
-                {
-                    var hash = new SHA1Managed().ComputeHash(Encoding.UTF8.GetBytes(input));
+                var hash = new SHA1Managed().ComputeHash(Encoding.UTF8.GetBytes(input));
                     string result = string.Concat(hash.Select(b => b.ToString("X2")));
                     return result;
-                }
             }
             catch (Exception ex)
             {

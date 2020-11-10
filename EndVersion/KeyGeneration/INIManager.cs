@@ -34,5 +34,6 @@ namespace KeyGeneration
 
         [DllImport("kernel32.dll", EntryPoint = "WritePrivateProfileString")]
         private static extern int WritePrivateString(string section, string key, string str, string path);
+        
     }
 }
