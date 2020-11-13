@@ -25,18 +25,8 @@ namespace KeyGeneration
             StringOperation stringOperation = new StringOperation();
             if (string.IsNullOrEmpty(txtSerialNumber.Text))
             {
-                if (string.IsNullOrEmpty(manager.GetPrivateString("main", "serialNumber")))
-                {
-                    MessageBox.Show(
-                        "Please enter some data or generate them in the main form");
-                }
-                else
-                {
-                    txtSerialNumber.Text = manager.GetPrivateString("main", "serialNumber");
-                    string result = hash.GenerateKey(txtSerialNumber.Text);
-                    txtLicenseKey.Text = stringOperation.AddSplit(result);
-                    manager.WritePrivateString("main", "key", txtLicenseKey.Text);
-                }
+                MessageBox.Show(
+                         "Please enter some data or generate them in the main form");
             }
             else
             {

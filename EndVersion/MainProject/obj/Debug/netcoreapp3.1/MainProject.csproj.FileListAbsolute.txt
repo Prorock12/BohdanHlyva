@@ -27,7 +27,6 @@ C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\Ha
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\System.Management.dll
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\bin\Debug\netcoreapp3.1\HashAction.pdb
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.csprojAssemblyReference.cache
-C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.EnterForm.resources
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.MainForm.resources
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.MainProject.resources
 C:\Богдан\C#\Mita Teknik\EndVersion\MainProject\obj\Debug\netcoreapp3.1\MainProject.csproj.GenerateResource.cache

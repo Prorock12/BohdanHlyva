@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;
-using KeyGeneration;
 using System.IO;
 
 namespace MainProject
@@ -17,9 +16,8 @@ namespace MainProject
     {
         HashAction.Hash hash = new HashAction.Hash();
         StringOperation operation = new StringOperation();
-        INIManager manager = new INIManager();
+        INIManager manager = new INIManager(Directory.GetCurrentDirectory()+ "\\License.ini");
         int count = 0;
-        string path = null;
         public MainForm()
         {
             InitializeComponent();
@@ -27,94 +25,60 @@ namespace MainProject
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            for (int index = 0; index < 4; index++)
-            {
-                if (index > 0)
-                {
-                    path = Path.GetDirectoryName(path);
-                }
-                else
-                {
-                    path = Path.GetDirectoryName(Directory.GetCurrentDirectory());
-                }
-            }
-            path = path + "\\KeyGeneration\\bin\\Debug\\netcoreapp3.1\\License.ini";
-            manager.Path = path;
+
         }
         private void Verifycate_Click(object sender, EventArgs e)
         {
             string result;
-            if (string.IsNullOrEmpty(manager.GetPrivateString("main", "key")))
+            string compareResult = hash.GenerateKey(string.Concat(Data.SerialNumberOut, Data.Availability, manager.GetPrivateString("main", "date")));
+            if (Convert.ToDateTime(manager.GetPrivateString("main", "date")) >= DateTime.Now)
             {
-                MessageBox.Show(
-                    "Please generate license key before verification it",
-                    "Warning",
-                    MessageBoxButtons.OK
-                    );
-            }
-            else
-            {
-                string compareResult = hash.GenerateKey(string.Concat(Data.SerialNumberOut, Data.Availability, manager.GetPrivateString("main","date")));
-                if (Convert.ToDateTime(manager.GetPrivateString("main","date")).AddMonths(1) >= DateTime.Now)
+                if (string.IsNullOrEmpty(txtVerifycate.Text))
                 {
-                    if (string.IsNullOrEmpty(txtVerifycate.Text))
-                    {
-                        if (hash.Verification(operation.RemoveSplit(manager.GetPrivateString("main", "key")), compareResult))
-                        {
-                            result = "This code is yours";
-                            manager.WritePrivateString("main", "endKey", manager.GetPrivateString("main", "key"));
-                            this.Hide();
-                            MainProject main = new MainProject();
-                            main.Show();
-                        }
-                        else
-                        {
-                            result = "Why you stole that code, you are so poor that you can't buy it?\n Please enter your key";
-                            count++;
-                        }
-                        MessageBox.Show(
-                        result,
-                        "Message",
-                        MessageBoxButtons.OK);
-                        if (count == 3)
-                            this.Close();
-                    }
-                    else
-                    {
-                        if (hash.Verification(operation.RemoveSplit(txtVerifycate.Text), compareResult))
-                        {
-                            result = "This code is yours";
-                            this.Hide();
-                            MainProject main = new MainProject();
-                            main.Show();
-                        }
-                        else
-                        {
-                            result = "Why you stole that code, you are so poor that you can't buy it?\n Please enter your key";
-                            count++;
-                        }
-                        MessageBox.Show(
-                        result,
-                        "Message",
-                        MessageBoxButtons.OK);
-                        if (count == 3)
-                            this.Close();
-                    }
+                    if (count == 3)
+                        this.Close();
+                    count++;
+                    MessageBox.Show(
+                    "Please enter key or upload file",
+                    "Message",
+                    MessageBoxButtons.OK);     
                 }
                 else
                 {
+                    if (hash.Verification(operation.RemoveSplit(txtVerifycate.Text), compareResult))
+                    {
+                        manager.WritePrivateString("main", "key",txtVerifycate.Text);
+                        result = "This code is yours";
+                        this.Hide();
+                        MainProject main = new MainProject();
+                        main.Show();
+                    }
+                    else
+                    {
+                        result = "Why you stole that code, you are so poor that you can't buy it?\n Please enter your key";
+                        count++;
+                    }
                     MessageBox.Show(
-                       "Your expiration date is over",
-                       "Warning",
-                       MessageBoxButtons.OK);
+                    result,
+                    "Message",
+                    MessageBoxButtons.OK);
+                    if (count == 3)
+                        this.Close();
                 }
+            }
+            else
+            {
+                MessageBox.Show(
+                   "Your expiration date is over",
+                   "Warning",
+                   MessageBoxButtons.OK);
             }
         }
 
         private void RequestLicense_Click(object sender, EventArgs e)
         {
-            txtRequestLicense.Text = string.Concat(Data.SerialNumberOut, Data.Availability,DateTime.Now.ToString("d"));
-            manager.WritePrivateString("main", "date", DateTime.Now.ToString("d"));
+            txtRequestLicense.Text = string.Concat(Data.SerialNumberOut, Data.Availability,dateTimePicker1.Value.ToString("d"));
+            manager.WritePrivateString("main", "date",dateTimePicker1.Value.ToString("d"));
             manager.WritePrivateString("main", "serialNumber", txtRequestLicense.Text);
         }
 
@@ -124,14 +88,45 @@ namespace MainProject
         }
         private void MainForm_Close(object sender, FormClosedEventArgs e)
         {
-            EnterForm enterForm = new EnterForm();
-            enterForm.Close();
+            MainProject mainProject = new MainProject();
+            mainProject.Close();
             this.Close();
         }
 
         private void txtVerifycate_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            //string compareResult = operation.AddSplit(hash.GenerateKey(string.Concat(Data.SerialNumberOut, Data.Availability, manager.GetPrivateString("main", "date"))));
+            //if (hash.Verification(compareResult, manager.GetPrivateString("main", "endKey")))
+            //{
+            //    this.Hide();
+            //    MainProject x = new MainProject();
+            //    x.Show();
+            //}
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void UploadFile_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = openFileDialog1.FileName;
+            INIManager manager1 = new INIManager(filename);
+            string fileText = manager1.GetPrivateString("main","key");
+            txtVerifycate.Text = fileText;
         }
     }
 }

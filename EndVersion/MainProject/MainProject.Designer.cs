@@ -51,6 +51,7 @@
             this.Text = "Form2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainProject_Close);
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.Shown += new System.EventHandler(this.MainProject_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

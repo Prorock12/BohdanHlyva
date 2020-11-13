@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashAction", "..\Hash.My\Ha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsForLicenseKey", "..\TestsForLicenseKey\TestsForLicenseKey.csproj", "{4159C0B7-5A1C-40B2-9292-144E9A6A8486}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyGeneration", "..\KeyGeneration\KeyGeneration.csproj", "{F331D4C2-BC9C-4842-A62C-65AD2732A6DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyGeneration", "..\KeyGeneration\KeyGeneration.csproj", "{F331D4C2-BC9C-4842-A62C-65AD2732A6DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
