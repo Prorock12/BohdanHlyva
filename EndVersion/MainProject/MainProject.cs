@@ -45,23 +45,37 @@ namespace MainProject
 
         private void MainProject_Shown(object sender, EventArgs e)
         {
-            string compareResult = operation.AddSplit(hash.GenerateKey(string.Concat(Data.SerialNumberOut, Data.Availability, manager.GetPrivateString("main", "date"))));
-            if (!hash.Verification(compareResult, manager.GetPrivateString("main", "key")))
+            if (Convert.ToDateTime(manager.GetPrivateString("main", "date")) >= DateTime.Now)
             {
-                this.Hide();
-                MainForm mainForm = new MainForm();
-                mainForm.Show();
+                string compareResult = operation.AddSplit(hash.GenerateKey(string.Concat(Data.SerialNumberOut, Data.Availability, manager.GetPrivateString("main", "date"))));
+                if (!hash.Verification(compareResult, manager.GetPrivateString("main", "key")))
+                {
+                    this.Hide();
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Your experation time is over");
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string compareResult = operation.AddSplit(hash.GenerateKey(string.Concat(Data.SerialNumberOut, Data.Availability, manager.GetPrivateString("main", "date"))));
-            if (!hash.Verification(compareResult, manager.GetPrivateString("main", "key")))
+            if (Convert.ToDateTime(manager.GetPrivateString("main", "date")) >= DateTime.Now)
             {
-                this.Hide();
-                MainForm mainForm = new MainForm();
-                mainForm.Show();
+                string compareResult = operation.AddSplit(hash.GenerateKey(string.Concat(Data.SerialNumberOut, Data.Availability, manager.GetPrivateString("main", "date"))));
+                if (!hash.Verification(compareResult, manager.GetPrivateString("main", "key")))
+                {
+                    this.Hide();
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Your experation time is over");
             }
         }
     }
