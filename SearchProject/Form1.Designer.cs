@@ -113,6 +113,7 @@
             this.LBFoundFiles.Name = "LBFoundFiles";
             this.LBFoundFiles.Size = new System.Drawing.Size(173, 94);
             this.LBFoundFiles.TabIndex = 7;
+            this.LBFoundFiles.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LBFoundFiles_MouseDoubleClick);
             // 
             // LBWrong
             // 

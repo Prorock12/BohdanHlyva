@@ -153,5 +153,11 @@ namespace SearchProject
                 Process.Start(@"cmd.exe ", @"/c" + node.FullPath);
             }
         }
+
+        private void LBFoundFiles_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string result = LBFoundFiles.SelectedItem.ToString();
+            Process.Start(@"cmd.exe ", @"/c" + result);
+        }
     }
 }
