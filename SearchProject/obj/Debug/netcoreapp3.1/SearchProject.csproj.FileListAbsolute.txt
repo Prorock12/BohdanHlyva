@@ -1,0 +1,15 @@
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\bin\Debug\netcoreapp3.1\SearchProject.exe
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\bin\Debug\netcoreapp3.1\SearchProject.deps.json
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\bin\Debug\netcoreapp3.1\SearchProject.runtimeconfig.json
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\bin\Debug\netcoreapp3.1\SearchProject.runtimeconfig.dev.json
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\bin\Debug\netcoreapp3.1\SearchProject.dll
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\bin\Debug\netcoreapp3.1\SearchProject.pdb
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\obj\Debug\netcoreapp3.1\SearchProject.csprojAssemblyReference.cache
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\obj\Debug\netcoreapp3.1\SearchProject.Form1.resources
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\obj\Debug\netcoreapp3.1\SearchProject.csproj.GenerateResource.cache
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\obj\Debug\netcoreapp3.1\SearchProject.AssemblyInfoInputs.cache
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\obj\Debug\netcoreapp3.1\SearchProject.AssemblyInfo.cs
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\obj\Debug\netcoreapp3.1\SearchProject.csproj.CoreCompileInputs.cache
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\obj\Debug\netcoreapp3.1\SearchProject.dll
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\obj\Debug\netcoreapp3.1\SearchProject.pdb
+C:\Богдан\C#\Mita Teknik\Task2\SearchProject\obj\Debug\netcoreapp3.1\SearchProject.genruntimeconfig.cache
