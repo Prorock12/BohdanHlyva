@@ -38,10 +38,12 @@
             this.LBFoundFiles = new System.Windows.Forms.ListBox();
             this.LBWrong = new System.Windows.Forms.ListBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.StopSearch = new System.Windows.Forms.Button();
+            this.ButtonStopSearch = new System.Windows.Forms.Button();
             this.txtFindTextInFile = new System.Windows.Forms.TextBox();
-            this.FindTextInFile = new System.Windows.Forms.Button();
+            this.BottonFindTextInFile = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonFindFile
@@ -82,7 +84,7 @@
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(153, 17);
+            this.checkedListBox1.Location = new System.Drawing.Point(12, 12);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 76);
             this.checkedListBox1.TabIndex = 5;
@@ -131,15 +133,15 @@
             this.progressBar1.Size = new System.Drawing.Size(403, 23);
             this.progressBar1.TabIndex = 9;
             // 
-            // StopSearch
+            // ButtonStopSearch
             // 
-            this.StopSearch.Location = new System.Drawing.Point(255, 213);
-            this.StopSearch.Name = "StopSearch";
-            this.StopSearch.Size = new System.Drawing.Size(107, 23);
-            this.StopSearch.TabIndex = 10;
-            this.StopSearch.Text = "Stop Searching";
-            this.StopSearch.UseVisualStyleBackColor = true;
-            this.StopSearch.Click += new System.EventHandler(this.StopSearch_Click);
+            this.ButtonStopSearch.Location = new System.Drawing.Point(255, 213);
+            this.ButtonStopSearch.Name = "ButtonStopSearch";
+            this.ButtonStopSearch.Size = new System.Drawing.Size(107, 23);
+            this.ButtonStopSearch.TabIndex = 10;
+            this.ButtonStopSearch.Text = "Stop Searching";
+            this.ButtonStopSearch.UseVisualStyleBackColor = true;
+            this.ButtonStopSearch.Click += new System.EventHandler(this.StopSearch_Click);
             // 
             // txtFindTextInFile
             // 
@@ -149,15 +151,15 @@
             this.txtFindTextInFile.Size = new System.Drawing.Size(172, 63);
             this.txtFindTextInFile.TabIndex = 11;
             // 
-            // FindTextInFile
+            // BottonFindTextInFile
             // 
-            this.FindTextInFile.Location = new System.Drawing.Point(255, 292);
-            this.FindTextInFile.Name = "FindTextInFile";
-            this.FindTextInFile.Size = new System.Drawing.Size(107, 23);
-            this.FindTextInFile.TabIndex = 12;
-            this.FindTextInFile.Text = "Find Text";
-            this.FindTextInFile.UseVisualStyleBackColor = true;
-            this.FindTextInFile.Click += new System.EventHandler(this.FindTextInFile_Click);
+            this.BottonFindTextInFile.Location = new System.Drawing.Point(255, 292);
+            this.BottonFindTextInFile.Name = "BottonFindTextInFile";
+            this.BottonFindTextInFile.Size = new System.Drawing.Size(107, 23);
+            this.BottonFindTextInFile.TabIndex = 12;
+            this.BottonFindTextInFile.Text = "Find Text";
+            this.BottonFindTextInFile.UseVisualStyleBackColor = true;
+            this.BottonFindTextInFile.Click += new System.EventHandler(this.FindTextInFile_Click);
             // 
             // label3
             // 
@@ -168,15 +170,23 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Please enter some text";
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(202, 17);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
+            this.numericUpDown1.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.FindTextInFile);
+            this.Controls.Add(this.BottonFindTextInFile);
             this.Controls.Add(this.txtFindTextInFile);
-            this.Controls.Add(this.StopSearch);
+            this.Controls.Add(this.ButtonStopSearch);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.LBWrong);
             this.Controls.Add(this.LBFoundFiles);
@@ -190,6 +200,7 @@
             this.Name = "Form1";
             this.Text = " ";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,10 +217,11 @@
         private System.Windows.Forms.ListBox LBFoundFiles;
         private System.Windows.Forms.ListBox LBWrong;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button StopSearch;
+        private System.Windows.Forms.Button ButtonStopSearch;
         private System.Windows.Forms.TextBox txtFindTextInFile;
-        private System.Windows.Forms.Button FindTextInFile;
+        private System.Windows.Forms.Button BottonFindTextInFile;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 

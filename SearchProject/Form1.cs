@@ -23,32 +23,35 @@ namespace SearchProject
         FileSearch fileSearch = new FileSearch();
         List<string> paths = new List<string>();
         List<string> wrongDirectories = new List<string>();
-        Thread task1;
-        bool IsStopThread = false;
+        Task task1;
+        static CancellationTokenSource tokenSource = new CancellationTokenSource();
+        CancellationToken token = tokenSource.Token;
         public Form1()
         {
             InitializeComponent();
+            ButtonFindFile.Enabled = true;
+            ButtonStopSearch.Enabled = false;
         }
 
         private void ButtonFindFile_Click(object sender, EventArgs e)
         {
-            IsStopThread = false;
-            task1 = new Thread(Search);
+            task1 = new Task(Search);
             paths.Clear();
+            treeView1.Nodes.Clear();
             wrongDirectories.Clear();
             LBFoundFiles.Items.Clear();
             LBWrong.Items.Clear();
+            ButtonFindFile.Enabled = false;
+            ButtonStopSearch.Enabled = true;
             task1.Start();
         }
 
         private void Search()
         {
-            int index = 0;
             progressBar1.Value = 0;
             string[] separateFiles = txtNeedsToFindFile.Text.Split(new char[] { ',' });
             string[] separateFormats = txtFormats.Text.Split(new char[] { ',' });
             List<string> rightFile = new List<string>();
-            //List<string> wrongDirectories = new List<string>();
             if (string.IsNullOrEmpty(txtFormats.Text))
             {
                 MessageBox.Show("Please enter formats");
@@ -61,44 +64,33 @@ namespace SearchProject
                 }
                 else
                 {
-                    foreach (string input in separateFiles)
+                    if (numericUpDown1.Value < 2)
                     {
-                        foreach (string format in separateFormats)
+                        MessageBox.Show("Please select numeric bigger or equal 2");
+                    }
+                    else
+                    {
+
+                        foreach (string input in separateFiles)
                         {
-                            (rightFile, wrongDirectories) = operation.FindFile(format, input, checkedListBox1);
-                            progressBar1.Invoke((MethodInvoker)(() => progressBar1.Maximum = separateFiles.Length * separateFormats.Length * rightFile.Count())); // + wrongDirectories.Count())));
-                            progressBar1.Invoke((MethodInvoker)(() => progressBar1.Step = 1));
-                            if (IsStopThread)
+                            foreach (string format in separateFormats)
                             {
-                                return;
-                            }
-                            foreach (string s in rightFile)
-                            {
+                                progressBar1.Invoke((MethodInvoker)(() => progressBar1.Maximum = separateFiles.Length*separateFormats.Length));
+                                progressBar1.Invoke((MethodInvoker)(() => progressBar1.Step = 1));
                                 progressBar1.Invoke((MethodInvoker)(() => progressBar1.PerformStep()));
-                                paths.Add(s);
+                                (rightFile, wrongDirectories) = operation.FindFile(format, input, checkedListBox1, progressBar1, token, Convert.ToInt32(numericUpDown1.Value));
+                                foreach (string s in rightFile)
+                                {
+                                    paths.Add(s);
+                                }
                             }
-                            //foreach (string s in wrongDirectories)
-                            //{
-                            //    progressBar1.Invoke((MethodInvoker)(() => progressBar1.PerformStep()));
-                            //    wrongPaths.Add(s);
-                            //}
                         }
                     }
                 }
             }
             treeView.PopulateTreeView(treeView1, paths, '\\');
-            //foreach (string s in paths)
-            //{
-            //    if (fileSearch.FindTXT(s))
-            //    {
-            //        LBFoundFiles.Invoke((MethodInvoker)(() => LBFoundFiles.Items.Add(s)));
-            //    }
-            //    else
-            //    {
-            //        LBWrong.Invoke((MethodInvoker)(() => LBWrong.Items.Add(s)));
-            //    }
-            //}
-            //LBWrong.Invoke((MethodInvoker)(() => LBWrong.Items.AddRange(wrongDirectories.ToArray())));
+            ButtonFindFile.Enabled = true;
+            ButtonStopSearch.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -109,11 +101,12 @@ namespace SearchProject
 
         private void StopSearch_Click(object sender, EventArgs e)
         {
-            if (task1.IsAlive)
-            {
-                progressBar1.Value = 0;
-                IsStopThread = true;
-            }
+            ButtonFindFile.Enabled = true;
+            ButtonStopSearch.Enabled = false;
+            progressBar1.Value = 0;
+            tokenSource.Cancel();
+            CancellationTokenSource tokenSource1 = new CancellationTokenSource();
+            token = tokenSource1.Token;
         }
 
         private void FindTextInFile_Click(object sender, EventArgs e)
